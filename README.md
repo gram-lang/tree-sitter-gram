@@ -1,6 +1,6 @@
 # tree-sitter-gram
 
-A [tree-sitter](https://tree-sitter.github.io/) grammar for [Gram](https://gram-lang.org), the recipe markup language.
+A [tree-sitter](https://tree-sitter.github.io/) grammar for [Gram](https://gram-lang.org), the declarative recipe DSL.
 
 It is a surface grammar, written for highlighting, folding and outlines in editors. The reference grammar is `packages/parser/grammar.ohm` in the [Gram monorepo](https://git.gram-lang.org/gram-lang/gram): this one reads the same text the same way, including its tolerance. What is not an element is prose, never an error.
 

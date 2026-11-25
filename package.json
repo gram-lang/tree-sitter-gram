@@ -1,7 +1,7 @@
 {
   "name": "tree-sitter-gram",
   "version": "0.1.0",
-  "description": "Gram grammar for tree-sitter: the recipe markup language",
+  "description": "Gram grammar for tree-sitter: the declarative recipe DSL",
   "license": "MIT",
   "author": "abiwab",
   "repository": {

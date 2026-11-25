@@ -1,5 +1,5 @@
 /**
- * @file Gram grammar for tree-sitter: the recipe markup language
+ * @file Gram grammar for tree-sitter: the declarative recipe DSL
  * @author abiwab
  * @license MIT
  *
