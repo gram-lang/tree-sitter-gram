@@ -1,0 +1,66 @@
+@use "./base.gram" as { &dough, &red sauce{} as &sauce }
+// <- keyword.import
+// ^ keyword.import
+//   ^ string
+//                 ^ keyword.import
+//                    ^ punctuation.bracket
+//                      ^ keyword
+//                       ^ tag
+//                            ^ punctuation.delimiter
+//                                   ^ tag
+//                                           ^ keyword.import
+//                                               ^ tag
+//                                                     ^ punctuation.bracket
+
+## Dough ~{1 day} ->&dough
+// <- markup.heading
+// ^ markup.heading
+//       ^ tag
+//         ^ tag
+//                ^ operator
+//                   ^ tag
+
+[Mix] Add @?flour{200 g}(sifted) and @salt in a #bowl{1}.
+// <- punctuation.bracket
+// ^ function
+//    ^ spell
+//        ^ keyword
+//         ^ keyword.modifier
+//          ^ type
+//               ^ punctuation.bracket
+//                ^ number
+//                    ^ keyword
+//                      ^ punctuation.bracket
+//                       ^ string
+//                                    ^ type
+//                                              ^ keyword
+//                                               ^ type.builtin
+
+Rest ~_rise{1 h - 2 h}, bake at ^oven{180°C}, until ={golden}.
+//   ^ keyword
+//    ^ keyword.modifier
+//     ^ type.builtin
+//              ^ operator
+//                              ^ keyword
+//                               ^ number
+//                                       ^ keyword
+//                                                  ^ keyword
+//                                                    ^ string
+//                                                          ^ punctuation.bracket
+
+Fold in &dough{1/2} with @butter:fat{10 % @&flour} or @oil{5 g}|@lard{5 g}.
+//      ^ keyword
+//       ^ tag
+//             ^ number
+//                              ^ operator
+//                               ^ string
+//                                      ^ operator
+//                                        ^ keyword
+//                                          ^ tag
+//                                                             ^ operator
+
+Serve @cream{50 g}<@sauce /* to taste */ // later
+//                ^ keyword
+//                  ^ type
+//                        ^ comment
+//                                       ^ comment

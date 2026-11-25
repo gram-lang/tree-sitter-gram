@@ -20,7 +20,9 @@
     "test": "tree-sitter test",
     "conformance:fetch": "node scripts/fetch-conformance.mjs",
     "conformance": "node scripts/check-conformance.mjs",
-    "oracle": "node scripts/oracle.mjs"
+    "oracle": "node scripts/oracle.mjs",
+    "queries": "node scripts/gen-queries.mjs",
+    "queries:check": "node scripts/gen-queries.mjs --check && node scripts/check-queries.mjs"
   },
   "devDependencies": {
     "@gram-lang/parser": "1.5.1",
