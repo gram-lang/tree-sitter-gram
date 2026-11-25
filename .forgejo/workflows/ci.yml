@@ -1,0 +1,45 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  ci:
+    name: Grammar, queries & corpus
+    runs-on: docker
+    container:
+      # Full image: git and a C compiler, for tree-sitter test and the corpus fetch.
+      # Trixie, not bookworm: the tree-sitter-cli 0.26 binary needs glibc 2.39.
+      image: node:22.23.5-trixie
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Generated parser is up to date
+        run: |
+          npx tree-sitter generate
+          git diff --exit-code -- src/
+          test -z "$(git status --porcelain -- src/)"
+
+      - name: Corpus and highlight tests
+        run: npx tree-sitter test
+
+      - name: Generated queries are up to date and compile
+        run: npm run queries:check
+
+      - name: Conformance corpus parses without ERROR or MISSING
+        run: |
+          npm run conformance:fetch
+          npm run conformance
+
+      - name: Cutting oracle against @gram-lang/parser
+        run: npm run oracle
