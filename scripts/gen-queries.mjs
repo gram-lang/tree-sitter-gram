@@ -86,7 +86,7 @@ const ROLES = {
 	modifier: { tm: "storage.modifier", nvim: "keyword.modifier", helix: "keyword.storage.modifier", zed: "keyword" },
 	ingredient: { tm: "entity.name.type.ingredient", nvim: "type", helix: "type", zed: "type" },
 	cookware: { tm: "support.class.cookware", nvim: "type.builtin", helix: "type.builtin", zed: "type.builtin" },
-	timer: { tm: "support.type.timer", nvim: "type.builtin", helix: "type.builtin", zed: "type.builtin" },
+	label: { tm: "support.type.timer|temperature", nvim: "type.builtin", helix: "type.builtin", zed: "type.builtin" },
 	reference: { tm: "entity.name.tag.reference|intermediate|retro", nvim: "tag", helix: "tag", zed: "tag" },
 	action: { tm: "entity.name.function.action", nvim: "function", helix: "function", zed: "function" },
 	heading: { tm: "entity.name.section", nvim: "markup.heading", helix: "markup.heading", zed: "title" },
@@ -154,11 +154,11 @@ const HIGHLIGHTS = [
 	["Timers: `_` marks a passive timer"],
 	['(timer "~" @{sigil})', "sigil"],
 	["(timer (passive) @{modifier})", "modifier"],
-	["(timer name: (name) @{timer})", "timer"],
+	["(timer name: (name) @{label})", "label"],
 
-	["Temperatures: the TextMate grammar colors a temperature's name as a number"],
+	["Temperatures: the name is the heat source (`^oven{180°C}`), a label like a timer's"],
 	['(temperature "^" @{sigil})', "sigil"],
-	["(temperature name: (name) @{number})", "number"],
+	["(temperature name: (name) @{label})", "label"],
 
 	["Checkpoints"],
 	['(checkpoint "={" @{sigil})', "sigil"],
@@ -222,7 +222,8 @@ function highlights(editor) {
 	return `${lines.join("\n")}\n`;
 }
 
-// The YAML of the frontmatter, for the three editors.
+// The YAML of the frontmatter, for the three editors. Helix and Zed get their
+// own copy, so that each editor's folder holds all its queries.
 const INJECTIONS = `${HEADER.join("\n")}
 
 ((yaml) @injection.content
@@ -260,6 +261,8 @@ const BRACKETS = `${HEADER.join("\n")}
 const files = {
 	"queries/highlights.scm": highlights("nvim"),
 	"queries/injections.scm": INJECTIONS,
+	"queries/helix/injections.scm": INJECTIONS,
+	"queries/zed/injections.scm": INJECTIONS,
 	"queries/folds.scm": FOLDS,
 	"queries/helix/highlights.scm": highlights("helix"),
 	"queries/zed/highlights.scm": highlights("zed"),

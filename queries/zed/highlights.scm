@@ -46,9 +46,9 @@
 (timer (passive) @keyword)
 (timer name: (name) @type.builtin)
 
-; Temperatures: the TextMate grammar colors a temperature's name as a number
+; Temperatures: the name is the heat source (`^oven{180°C}`), a label like a timer's
 (temperature "^" @keyword)
-(temperature name: (name) @number)
+(temperature name: (name) @type.builtin)
 
 ; Checkpoints
 (checkpoint "={" @keyword)

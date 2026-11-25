@@ -42,7 +42,7 @@ Rest ~_rise{1 h - 2 h}, bake at ^oven{180°C}, until ={golden}.
 //     ^ type.builtin
 //              ^ operator
 //                              ^ keyword
-//                               ^ number
+//                               ^ type.builtin
 //                                       ^ keyword
 //                                                  ^ keyword
 //                                                    ^ string
