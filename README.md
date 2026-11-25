@@ -15,7 +15,12 @@ It is a surface grammar, written for highlighting, folding and outlines in edito
 ```sh
 tree-sitter generate   # src/parser.c is committed: editors build from src/ without the CLI
 tree-sitter test       # test/corpus/
+
+npm run conformance:fetch   # the monorepo's conformance corpus, at the ref pinned in package.json
+npm run conformance         # every recipe of it parses with no ERROR or MISSING node
 ```
+
+The corpus is pinned in one place, `package.json` (`gram.ref`, a tag or a commit of the monorepo). `GRAM_MONOREPO` points the fetch to another clone, a local path included. The eight cases that are syntax errors in `grammar.ohm` are left out (`gram.syntaxErrorCases`); the other `err-*` cases are valid recipes and are checked.
 
 ## License
 

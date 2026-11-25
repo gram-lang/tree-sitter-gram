@@ -1,0 +1,33 @@
+{
+  "name": "tree-sitter-gram",
+  "version": "0.1.0",
+  "description": "Gram grammar for tree-sitter: the recipe markup language",
+  "license": "MIT",
+  "author": "abiwab",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gram-lang/tree-sitter-gram.git"
+  },
+  "private": true,
+  "type": "module",
+  "files": [
+    "grammar.js",
+    "tree-sitter.json",
+    "src/**",
+    "queries/**"
+  ],
+  "scripts": {
+    "generate": "tree-sitter generate",
+    "test": "tree-sitter test",
+    "conformance:fetch": "node scripts/fetch-conformance.mjs",
+    "conformance": "node scripts/check-conformance.mjs"
+  },
+  "devDependencies": {
+    "tree-sitter-cli": "0.26.11"
+  },
+  "gram": {
+    "repository": "https://git.gram-lang.org/gram-lang/gram.git",
+    "ref": "7ff52a35922594a52a001471213a50431ec95e16",
+    "syntaxErrorCases": ["err-001", "err-009", "err-010", "err-012", "err-013", "err-014", "err-015", "err-016"]
+  }
+}
