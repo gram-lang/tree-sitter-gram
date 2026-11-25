@@ -1,0 +1,68 @@
+========================================
+Line comment block
+========================================
+
+// a note
+Mix.
+
+---
+
+(document
+  (comment)
+  (step
+    (text)))
+
+========================================
+Line comment inside a step
+========================================
+
+Mix.
+// a note
+
+---
+
+(document
+  (step
+    (text)
+    (comment)))
+
+========================================
+Block comment over lines
+========================================
+
+/* a
+
+b */ Mix.
+
+---
+
+(document
+  (step
+    (block_comment)
+    (text)))
+
+========================================
+Unclosed block comment is prose
+========================================
+
+Mix /* oops.
+
+---
+
+(document
+  (step
+    (text)
+    (text)
+    (text)))
+
+========================================
+Slash in prose
+========================================
+
+Mix 1/2 and/or 3.
+
+---
+
+(document
+  (step
+    (text)))

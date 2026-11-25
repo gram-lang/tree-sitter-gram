@@ -1,0 +1,34 @@
+{
+  "$schema": "https://tree-sitter.github.io/tree-sitter/assets/schemas/config.schema.json",
+  "grammars": [
+    {
+      "name": "gram",
+      "camelcase": "Gram",
+      "title": "Gram",
+      "scope": "source.gram",
+      "file-types": ["gram"],
+      "injection-regex": "^gram$",
+      "class-name": "TreeSitterGram",
+      "highlights": "queries/highlights.scm",
+      "injections": "queries/injections.scm"
+    }
+  ],
+  "metadata": {
+    "version": "0.1.0",
+    "license": "MIT",
+    "description": "Gram grammar for tree-sitter: the recipe markup language",
+    "authors": [{ "name": "abiwab" }],
+    "links": {
+      "repository": "https://github.com/gram-lang/tree-sitter-gram"
+    }
+  },
+  "bindings": {
+    "c": true,
+    "go": false,
+    "node": true,
+    "python": false,
+    "rust": true,
+    "swift": false,
+    "zig": false
+  }
+}

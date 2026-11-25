@@ -1,0 +1,104 @@
+========================================
+Frontmatter
+========================================
+---
+title: Bread
+servings: 4
+---
+
+Mix.
+
+---
+
+(document
+  (frontmatter
+    (yaml))
+  (step
+    (text)))
+
+========================================
+Empty frontmatter
+========================================
+---
+---
+Mix.
+
+---
+
+(document
+  (frontmatter)
+  (step
+    (text)))
+
+========================================
+Indented keys and spaced colon
+========================================
+---
+  title : Bread
+
+servings: 4
+---  
+Mix.
+
+---
+
+(document
+  (frontmatter
+    (yaml))
+  (step
+    (text)))
+
+========================================
+Blank line before the closing fence is prose
+========================================
+---
+title: A
+
+---
+Mix.
+
+---
+
+(document
+  (step
+    (text)
+    (text))
+  (step
+    (text)
+    (text)))
+
+========================================
+A line that is not a key is prose
+========================================
+---
+title: A
+- x
+---
+Mix.
+
+---
+
+(document
+  (step
+    (text)
+    (text)
+    (text)
+    (text)
+    (text)))
+
+========================================
+Byte order mark
+========================================
+﻿---
+title: A
+---
+
+Mix.
+
+---
+
+(document
+  (frontmatter
+    (yaml))
+  (step
+    (text)))

@@ -1,0 +1,43 @@
+========================================
+Target state
+========================================
+
+Whisk until ={ribbon stage}(a trail stays on top).
+
+---
+
+(document
+  (step
+    (text)
+    (checkpoint
+      (state)
+      (preparation
+        (note)))
+    (text)))
+
+========================================
+A spaced note is prose
+========================================
+
+Cook until ={thick} (stir).
+
+---
+
+(document
+  (step
+    (text)
+    (checkpoint
+      (state))
+    (text)))
+
+========================================
+An equal sign alone is prose
+========================================
+
+Ratio a=b.
+
+---
+
+(document
+  (step
+    (text)))

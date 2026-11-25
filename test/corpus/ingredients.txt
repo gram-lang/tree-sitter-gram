@@ -1,0 +1,322 @@
+========================================
+Bare and full
+========================================
+
+Add @salt and @flour{500 g}.
+
+---
+
+(document
+  (step
+    (text)
+    (ingredient
+      (name))
+    (text)
+    (ingredient
+      (name)
+      (amount
+        (number)
+        (unit)))
+    (text)))
+
+========================================
+Multi-word name
+========================================
+
+Add @whole wheat flour{500 g}.
+
+---
+
+(document
+  (step
+    (text)
+    (ingredient
+      (name)
+      (amount
+        (number)
+        (unit)))
+    (text)))
+
+========================================
+A braced name runs over punctuation (as the compiler reads it)
+========================================
+
+Assaisonner avec @sel, puis ajouter l'eau{100 ml}.
+
+---
+
+(document
+  (step
+    (text)
+    (ingredient
+      (name)
+      (amount
+        (number)
+        (unit)))
+    (text)))
+
+========================================
+A bare name stops at a blank or punctuation
+========================================
+
+Mettre @sel puis @farine{200 g}. Add @salt, @pepper; @oil!
+
+---
+
+(document
+  (step
+    (text)
+    (ingredient
+      (name))
+    (text)
+    (ingredient
+      (name)
+      (amount
+        (number)
+        (unit)))
+    (text)
+    (ingredient
+      (name))
+    (text)
+    (ingredient
+      (name))
+    (text)
+    (ingredient
+      (name))
+    (text)))
+
+========================================
+A bare name may hold sigils
+========================================
+
+Add @a#b.
+
+---
+
+(document
+  (step
+    (text)
+    (ingredient
+      (name))
+    (text)))
+
+========================================
+Modifiers
+========================================
+
+Add @?salt, @-butter{10 g}, @*oil and @&dough{1}.
+
+---
+
+(document
+  (step
+    (text)
+    (ingredient
+      (modifier)
+      (name))
+    (text)
+    (ingredient
+      (modifier)
+      (name)
+      (amount
+        (number)
+        (unit)))
+    (text)
+    (ingredient
+      (modifier)
+      (name))
+    (text)
+    (ingredient
+      (modifier)
+      (name)
+      (amount
+        (number)))
+    (text)))
+
+========================================
+Alias
+========================================
+
+Add @flour:farine{500 g} and @sel:fleur de sel ~{1 min}.
+
+---
+
+(document
+  (step
+    (text)
+    (ingredient
+      (name)
+      (alias)
+      (amount
+        (number)
+        (unit)))
+    (text)
+    (ingredient
+      (name)
+      (alias))
+    (timer
+      (amount
+        (number)
+        (unit)))
+    (text)))
+
+========================================
+Preparation glued or not
+========================================
+
+Add @onion(diced) and @salt (fine) and @egg{1}(beaten).
+
+---
+
+(document
+  (step
+    (text)
+    (ingredient
+      (name)
+      (preparation
+        (note)))
+    (text)
+    (ingredient
+      (name))
+    (text)
+    (ingredient
+      (name)
+      (amount
+        (number))
+      (preparation
+        (note)))
+    (text)))
+
+========================================
+Composite
+========================================
+
+Add @juice{50 ml}<@lemon{1}(zested) and @zest<@&lemon.
+
+---
+
+(document
+  (step
+    (text)
+    (ingredient
+      (name)
+      (amount
+        (number)
+        (unit))
+      (composite
+        (name)
+        (amount
+          (number))
+        (preparation
+          (note))))
+    (text)
+    (ingredient
+      (name)
+      (composite
+        (modifier)
+        (name)))
+    (text)))
+
+========================================
+A spaced composite is prose
+========================================
+
+Add @a{1} <@b.
+
+---
+
+(document
+  (step
+    (text)
+    (ingredient
+      (name)
+      (amount
+        (number)))
+    (text)
+    (ingredient
+      (name))
+    (text)))
+
+========================================
+Alternatives
+========================================
+
+Add @butter{20 g}|@margarine{20 g} or @salt | @pepper.
+
+---
+
+(document
+  (step
+    (text)
+    (alternative
+      (ingredient
+        (name)
+        (amount
+          (number)
+          (unit)))
+      (ingredient
+        (name)
+        (amount
+          (number)
+          (unit))))
+    (text)
+    (alternative
+      (ingredient
+        (name))
+      (ingredient
+        (name)))
+    (text)))
+
+========================================
+Leading blank in a braced name
+========================================
+
+Add @ flour{1 g}.
+
+---
+
+(document
+  (step
+    (text)
+    (ingredient
+      (name)
+      (amount
+        (number)
+        (unit)))
+    (text)))
+
+========================================
+Sigils without a name are prose
+========================================
+
+Email me @ home, @@ or @.
+
+---
+
+(document
+  (step
+    (text)
+    (text)
+    (text)
+    (text)
+    (text)
+    (text)
+    (text)
+    (text)))
+
+========================================
+Braces after a preparation are prose
+========================================
+
+Add @a(b) {1}.
+
+---
+
+(document
+  (step
+    (text)
+    (ingredient
+      (name)
+      (preparation
+        (note)))
+    (text)))

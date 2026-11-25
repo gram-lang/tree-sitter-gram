@@ -1,0 +1,126 @@
+========================================
+Blank line between steps
+========================================
+
+Mix.
+
+Bake.
+
+---
+
+(document
+  (step
+    (text))
+  (step
+    (text)))
+
+========================================
+Consecutive lines make one step
+========================================
+
+Mix the flour
+with the water.
+
+---
+
+(document
+  (step
+    (text)
+    (text)))
+
+========================================
+Blank line made of blanks
+========================================
+
+Mix.
+ 	 
+Bake.
+
+---
+
+(document
+  (step
+    (text))
+  (step
+    (text)))
+
+========================================
+Action
+========================================
+
+[Knead] the dough.
+
+---
+
+(document
+  (step
+    (action
+      (name))
+    (text)))
+
+========================================
+Bracket inside a step is prose
+========================================
+
+Knead [well] the dough.
+
+---
+
+(document
+  (step
+    (text)))
+
+========================================
+Unclosed action is prose
+========================================
+
+[Knead the dough.
+
+---
+
+(document
+  (step
+    (text)
+    (text)))
+
+========================================
+No trailing newline
+========================================
+
+Mix.
+---
+
+(document
+  (step
+    (text)))
+
+========================================
+CRLF and lone CR
+========================================
+
+Mix.
+Stir.Bake.
+---
+
+(document
+  (step
+    (text)
+    (text))
+  (step
+    (text)))
+
+========================================
+A no-break space makes a line
+========================================
+
+Mix.
+ 
+Bake.
+
+---
+
+(document
+  (step
+    (text)
+    (text)
+    (text)))

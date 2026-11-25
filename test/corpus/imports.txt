@@ -1,0 +1,129 @@
+========================================
+Default binding
+========================================
+@use "./dough.gram" as &dough
+
+Mix &dough.
+
+---
+
+(document
+  (use_block
+    (use_directive
+      (string)
+      (binding
+        (binding_name))))
+  (step
+    (text)
+    (reference
+      (name))
+    (text)))
+
+========================================
+Named bindings, rename and multi-word name
+========================================
+@use "./base.gram" as { &dough, &puff pastry{} as &pastry }
+
+Mix.
+
+---
+
+(document
+  (use_block
+    (use_directive
+      (string)
+      (binding
+        (binding_name))
+      (binding
+        (binding_name)
+        (binding_name))))
+  (step
+    (text)))
+
+========================================
+Anchor
+========================================
+@use "./sauce.gram" as &sauce ~{-1d}
+
+Mix.
+
+---
+
+(document
+  (use_block
+    (use_directive
+      (string)
+      (binding
+        (binding_name))
+      (retro_planning
+        (value))))
+  (step
+    (text)))
+
+========================================
+Comments inside the block
+========================================
+@use "./a.gram" as &a
+// shared bases
+@use "./b.gram" as &b
+
+Mix.
+
+---
+
+(document
+  (use_block
+    (use_directive
+      (string)
+      (binding
+        (binding_name)))
+    (comment)
+    (use_directive
+      (string)
+      (binding
+        (binding_name))))
+  (step
+    (text)))
+
+========================================
+After frontmatter
+========================================
+---
+title: A
+---
+
+@use "./a.gram" as &a
+
+Mix.
+
+---
+
+(document
+  (frontmatter
+    (yaml))
+  (use_block
+    (use_directive
+      (string)
+      (binding
+        (binding_name))))
+  (step
+    (text)))
+
+========================================
+Ingredient named use in a step
+========================================
+Add @use and @user{1}.
+
+---
+
+(document
+  (step
+    (text)
+    (ingredient
+      (name))
+    (text)
+    (ingredient
+      (name)
+      (amount
+        (number)))
+    (text)))

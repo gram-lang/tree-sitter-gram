@@ -1,0 +1,181 @@
+========================================
+Header
+========================================
+
+## Dough
+
+Mix.
+
+---
+
+(document
+  (section
+    (header
+      (title))
+    (step
+      (text))))
+
+========================================
+Step right after the header
+========================================
+
+## Dough
+Mix.
+
+---
+
+(document
+  (section
+    (header
+      (title))
+    (step
+      (text))))
+
+========================================
+Anchor and declaration
+========================================
+
+## Dough ~{-1d} ->&dough
+
+Mix.
+
+## Bake ->&bread{} ~{2h}
+
+Bake.
+
+---
+
+(document
+  (section
+    (header
+      (title)
+      (retro_planning
+        (value))
+      (intermediate_decl
+        (name)))
+    (step
+      (text)))
+  (section
+    (header
+      (title)
+      (intermediate_decl
+        (name))
+      (retro_planning
+        (value)))
+    (step
+      (text))))
+
+========================================
+Empty headers
+========================================
+
+##
+
+Mix.
+
+## 
+
+Bake.
+
+---
+
+(document
+  (section
+    (header)
+    (step
+      (text)))
+  (section
+    (header)
+    (step
+      (text))))
+
+========================================
+Indented header
+========================================
+
+   ## Dough
+
+Mix.
+
+---
+
+(document
+  (section
+    (header
+      (title))
+    (step
+      (text))))
+
+========================================
+No blank after the marker: a tool named #x
+========================================
+
+##Foo
+
+---
+
+(document
+  (step
+    (cookware
+      (name))))
+
+========================================
+Third hash: prose
+========================================
+
+### Foo
+
+---
+
+(document
+  (step
+    (text)
+    (text)
+    (text)
+    (text)))
+
+========================================
+Header on a continuation line is prose
+========================================
+
+Mix.
+## A
+
+---
+
+(document
+  (step
+    (text)
+    (text)
+    (text)
+    (text)))
+
+========================================
+Comment line, then a header
+========================================
+
+// note
+## A
+
+Mix.
+
+---
+
+(document
+  (comment)
+  (section
+    (header
+      (title))
+    (step
+      (text))))
+
+========================================
+Unclosed anchor: a syntax error, as in the compiler
+:error
+========================================
+
+## Dough ~{-1d
+
+---
+
+(document)

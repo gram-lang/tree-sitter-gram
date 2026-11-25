@@ -1,0 +1,102 @@
+========================================
+Numbers and units
+========================================
+
+Add @a{1/2 cup}, @b{1 1/2 tbsp}, @c{½}, @d{1,5 kg}, @e{2-3} and @f{c.à.s}.
+
+---
+
+(document
+  (step
+    (text)
+    (ingredient
+      (name)
+      (amount
+        (number)
+        (unit)))
+    (text)
+    (ingredient
+      (name)
+      (amount
+        (number)
+        (number)
+        (unit)))
+    (text)
+    (ingredient
+      (name)
+      (amount
+        (number)))
+    (text)
+    (ingredient
+      (name)
+      (amount
+        (number)
+        (unit)))
+    (text)
+    (ingredient
+      (name)
+      (amount
+        (number)
+        (operator)
+        (number)))
+    (text)
+    (ingredient
+      (name)
+      (amount
+        (unit)))
+    (text)))
+
+========================================
+Sum of quantities
+========================================
+
+Add @milk{1 cup + 2 tbsp} and @sugar{1 cup - 1 tbsp}.
+
+---
+
+(document
+  (step
+    (text)
+    (ingredient
+      (name)
+      (amount
+        (number)
+        (unit)
+        (operator)
+        (number)
+        (unit)))
+    (text)
+    (ingredient
+      (name)
+      (amount
+        (number)
+        (unit)
+        (operator)
+        (number)
+        (unit)))
+    (text)))
+
+========================================
+Fixed and text
+========================================
+
+Add @=salt{1 pinch} and @pepper{to taste}.
+
+---
+
+(document
+  (step
+    (text)
+    (ingredient
+      (modifier)
+      (name)
+      (amount
+        (number)
+        (unit)))
+    (text)
+    (ingredient
+      (name)
+      (amount
+        (unit)
+        (unit)))
+    (text)))

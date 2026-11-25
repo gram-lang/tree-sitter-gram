@@ -1,0 +1,67 @@
+========================================
+Bare and full
+========================================
+
+Use a #bowl and a #large pot{} and #pans{2}.
+
+---
+
+(document
+  (step
+    (text)
+    (cookware
+      (name))
+    (text)
+    (cookware
+      (name)
+      (amount))
+    (text)
+    (cookware
+      (name)
+      (amount
+        (number)))
+    (text)))
+
+========================================
+Alias, modifier, preparation
+========================================
+
+Use a #?pan:skillet{1}(oiled) and #whisk(clean).
+
+---
+
+(document
+  (step
+    (text)
+    (cookware
+      (modifier)
+      (name)
+      (alias)
+      (amount
+        (number))
+      (preparation
+        (note)))
+    (text)
+    (cookware
+      (name)
+      (preparation
+        (note)))
+    (text)))
+
+========================================
+Alternatives
+========================================
+
+Use a #bowl|#pot.
+
+---
+
+(document
+  (step
+    (text)
+    (alternative
+      (cookware
+        (name))
+      (cookware
+        (name)))
+    (text)))

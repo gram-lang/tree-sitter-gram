@@ -1,0 +1,55 @@
+========================================
+Temperatures
+========================================
+
+Bake at ^{180°C}(fan) on ^oven{medium heat}.
+
+---
+
+(document
+  (step
+    (text)
+    (temperature
+      (amount
+        (number)
+        (unit))
+      (preparation
+        (note)))
+    (text)
+    (temperature
+      (name)
+      (amount
+        (unit)
+        (unit)))
+    (text)))
+
+========================================
+A spaced note is prose
+========================================
+
+Heat to ^{160°C} (preheated).
+
+---
+
+(document
+  (step
+    (text)
+    (temperature
+      (amount
+        (number)
+        (unit)))
+    (text)))
+
+========================================
+Unclosed braces are prose
+========================================
+
+Heat ^{180.
+
+---
+
+(document
+  (step
+    (text)
+    (text)
+    (text)))

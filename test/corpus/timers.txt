@@ -1,0 +1,122 @@
+========================================
+Anonymous, named and passive
+========================================
+
+Bake ~{30 min}, then ~rest{1 h} and ~_proof{2 h}.
+
+---
+
+(document
+  (step
+    (text)
+    (timer
+      (amount
+        (number)
+        (unit)))
+    (text)
+    (timer
+      (name)
+      (amount
+        (number)
+        (unit)))
+    (text)
+    (timer
+      (passive)
+      (name)
+      (amount
+        (number)
+        (unit)))
+    (text)))
+
+========================================
+Free-form durations
+========================================
+
+Wait ~{1h30}, ~{1:30 h}, ~{5'30"} or ~{45 min - 1 h}.
+
+---
+
+(document
+  (step
+    (text)
+    (timer
+      (amount
+        (number)
+        (unit)))
+    (text)
+    (timer
+      (amount
+        (number)
+        (operator)
+        (number)
+        (unit)))
+    (text)
+    (timer
+      (amount
+        (number)
+        (unit)
+        (number)
+        (unit)))
+    (text)
+    (timer
+      (amount
+        (number)
+        (unit)
+        (operator)
+        (number)
+        (unit)))
+    (text)))
+
+========================================
+Proportional time
+========================================
+
+Roast ~{15 min / 500 g @&roast}.
+
+---
+
+(document
+  (step
+    (text)
+    (timer
+      (amount
+        (number)
+        (unit)
+        (operator)
+        (number)
+        (unit)
+        (target
+          (name))))
+    (text)))
+
+========================================
+A timer name runs up to the brace
+========================================
+
+Wait ~a ~{5 min}.
+
+---
+
+(document
+  (step
+    (text)
+    (timer
+      (name)
+      (amount
+        (number)
+        (unit)))
+    (text)))
+
+========================================
+A tilde without braces is prose
+========================================
+
+About ~5 min.
+
+---
+
+(document
+  (step
+    (text)
+    (text)
+    (text)))

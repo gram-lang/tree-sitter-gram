@@ -1,0 +1,79 @@
+========================================
+Bare and full declarations
+========================================
+
+Mix ->&dough.
+
+Fold ->&puff pastry{}.
+
+---
+
+(document
+  (step
+    (text)
+    (intermediate_decl
+      (name))
+    (text))
+  (step
+    (text)
+    (intermediate_decl
+      (name))
+    (text)))
+
+========================================
+A full name runs over punctuation (as the compiler reads it)
+========================================
+
+Mix ->&dough, then ->&puff pastry{}.
+
+---
+
+(document
+  (step
+    (text)
+    (intermediate_decl
+      (name))
+    (text)))
+
+========================================
+A declaration with braces that are not empty
+========================================
+
+Mix ->&c{1}.
+
+---
+
+(document
+  (step
+    (text)
+    (intermediate_decl
+      (name))
+    (text)))
+
+========================================
+A full name runs over sigils
+========================================
+
+x ->& y ->&a b{}
+
+---
+
+(document
+  (step
+    (text)
+    (intermediate_decl
+      (name))))
+
+========================================
+Arrow without a name is prose
+========================================
+
+a -> b ->& c
+
+---
+
+(document
+  (step
+    (text)
+    (text)
+    (text)))

@@ -1,0 +1,77 @@
+========================================
+Bare and full
+========================================
+
+Shape &dough and add &sauce{100 ml} and &pastry dough{1}.
+
+---
+
+(document
+  (step
+    (text)
+    (reference
+      (name))
+    (text)
+    (reference
+      (name)
+      (amount
+        (number)
+        (unit)))
+    (text)
+    (reference
+      (name)
+      (amount
+        (number)))
+    (text)))
+
+========================================
+Ampersand in prose
+========================================
+
+Rock & roll.
+
+---
+
+(document
+  (step
+    (text)
+    (text)
+    (text)))
+
+========================================
+Relative quantity and ratio targets
+========================================
+
+Add @salt{2 % @&flour}, @yeast{1 / 100 g @&flour} and @water{65 % &dough}.
+
+---
+
+(document
+  (step
+    (text)
+    (ingredient
+      (name)
+      (amount
+        (number)
+        (operator)
+        (target
+          (name))))
+    (text)
+    (ingredient
+      (name)
+      (amount
+        (number)
+        (operator)
+        (number)
+        (unit)
+        (target
+          (name))))
+    (text)
+    (ingredient
+      (name)
+      (amount
+        (number)
+        (operator)
+        (target
+          (name))))
+    (text)))
