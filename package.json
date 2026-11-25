@@ -20,14 +20,25 @@
     "generate": "tree-sitter generate",
     "test": "tree-sitter test",
     "conformance:fetch": "node scripts/fetch-conformance.mjs",
-    "conformance": "node scripts/check-conformance.mjs"
+    "conformance": "node scripts/check-conformance.mjs",
+    "oracle": "node scripts/oracle.mjs"
   },
   "devDependencies": {
+    "@gram-lang/parser": "1.5.1",
     "tree-sitter-cli": "0.26.11"
   },
   "gram": {
     "repository": "https://git.gram-lang.org/gram-lang/gram.git",
     "ref": "7ff52a35922594a52a001471213a50431ec95e16",
-    "syntaxErrorCases": ["err-001", "err-009", "err-010", "err-012", "err-013", "err-014", "err-015", "err-016"]
+    "syntaxErrorCases": [
+      "err-001",
+      "err-009",
+      "err-010",
+      "err-012",
+      "err-013",
+      "err-014",
+      "err-015",
+      "err-016"
+    ]
   }
 }
