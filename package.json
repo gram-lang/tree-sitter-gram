@@ -9,7 +9,6 @@
     "url": "git+https://github.com/gram-lang/tree-sitter-gram.git"
   },
   "private": true,
-  "type": "module",
   "files": [
     "grammar.js",
     "tree-sitter.json",
