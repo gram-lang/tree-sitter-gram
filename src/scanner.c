@@ -203,7 +203,8 @@ static Form element_form(const Scanner *s, uint32_t start, bool modifiers, bool 
     uint32_t r1 = ref_name_end(s, m);
     if (r1 > m && r1 < N) {
       if (B[r1] == '{') return FORM_FULL;
-      if (alias && B[r1] == ':') {
+      // The alias starts right after the `:`, with no blank (gram#273).
+      if (alias && B[r1] == ':' && r1 + 1 < N && !is_blank(B[r1 + 1])) {
         uint32_t r2 = ref_name_end(s, r1 + 1);
         if (r2 > r1 + 1 && r2 < N && B[r2] == '{') return FORM_FULL;
       }
@@ -469,7 +470,9 @@ static bool scan(Scanner *s, TSLexer *lexer, const bool *valid) {
     advance(lexer);
     mark(lexer);
     read_line(s, lexer, NULL, 0);
-    if (ref_name_end(s, 0) > 0) return emit(lexer, ALIAS_COLON);
+    // A `:` followed by a blank is punctuation, not an alias (gram#273, #281).
+    if (s->line.size > 0 && !is_blank(s->line.contents[0]) && ref_name_end(s, 0) > 0)
+      return emit(lexer, ALIAS_COLON);
     return fallback(lexer, valid);
   }
   if ((valid[COMPOSITE_FULL] || valid[COMPOSITE_BARE]) && c == '<') {

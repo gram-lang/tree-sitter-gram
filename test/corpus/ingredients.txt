@@ -320,3 +320,19 @@ Add @a(b) {1}.
       (preparation
         (note)))
     (text)))
+
+========================================
+Colon and blank after a bare ingredient
+========================================
+
+Add @flour: sifted.
+
+---
+
+(document
+  (step
+    (text)
+    (ingredient
+      (name))
+    (text)
+    (text)))

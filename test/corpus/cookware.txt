@@ -65,3 +65,19 @@ Use a #bowl|#pot.
       (cookware
         (name)))
     (text)))
+
+========================================
+Colon and blank after a bare cookware
+========================================
+
+Heat the #pan: then add oil.
+
+---
+
+(document
+  (step
+    (text)
+    (cookware
+      (name))
+    (text)
+    (text)))
