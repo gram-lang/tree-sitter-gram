@@ -322,10 +322,12 @@ Add @a(b) {1}.
     (text)))
 
 ========================================
-Colon and blank after a bare ingredient
+Colon and blank after a bare ingredient: punctuation, no alias (#273)
 ========================================
 
 Add @flour: sifted.
+
+Add @salt: fleur de sel.
 
 ---
 
@@ -335,4 +337,67 @@ Add @flour: sifted.
     (ingredient
       (name))
     (text)
+    (text))
+  (step
+    (text)
+    (ingredient
+      (name))
+    (text)
     (text)))
+
+========================================
+Colon and blanks at the end of a line: no empty alias (#281)
+========================================
+
+Add @salt: 
+
+---
+
+(document
+  (step
+    (text)
+    (ingredient
+      (name))
+    (text)))
+
+========================================
+Colon after braces stays text
+========================================
+
+Mix @flour{200g}: then rest.
+
+---
+
+(document
+  (step
+    (text)
+    (ingredient
+      (name)
+      (amount
+        (number)
+        (unit)))
+    (text)))
+
+========================================
+Alias glued to the colon
+========================================
+
+Add @salt:fleur de sel.
+
+@dry white wine:wine{10ml}
+
+---
+
+(document
+  (step
+    (text)
+    (ingredient
+      (name)
+      (alias)))
+  (step
+    (ingredient
+      (name)
+      (alias)
+      (amount
+        (number)
+        (unit)))))

@@ -67,10 +67,12 @@ Use a #bowl|#pot.
     (text)))
 
 ========================================
-Colon and blank after a bare cookware
+Colon and blank after a bare tool: punctuation, no alias (#273)
 ========================================
 
 Heat the #pan: then add oil.
+
+Heat the #pan:	then add oil.
 
 ---
 
@@ -80,4 +82,27 @@ Heat the #pan: then add oil.
     (cookware
       (name))
     (text)
+    (text))
+  (step
+    (text)
+    (cookware
+      (name))
+    (text)
+    (text)))
+
+========================================
+Tool alias glued to the colon
+========================================
+
+Use the #cast iron skillet:skillet{}.
+
+---
+
+(document
+  (step
+    (text)
+    (cookware
+      (name)
+      (alias)
+      (amount))
     (text)))

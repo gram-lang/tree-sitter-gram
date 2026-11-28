@@ -1,6 +1,6 @@
 {
   "name": "tree-sitter-gram",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Gram grammar for tree-sitter: the declarative recipe DSL",
   "license": "MIT",
   "author": "abiwab",
@@ -25,12 +25,12 @@
     "queries:check": "node scripts/gen-queries.mjs --check && node scripts/check-queries.mjs"
   },
   "devDependencies": {
-    "@gram-lang/parser": "1.5.1",
+    "@gram-lang/parser": "file:vendor/gram-lang-parser-c8d120a2.tgz",
     "tree-sitter-cli": "0.26.11"
   },
   "gram": {
     "repository": "https://git.gram-lang.org/gram-lang/gram.git",
-    "ref": "7ff52a35922594a52a001471213a50431ec95e16",
+    "ref": "c8d120a22aeef6ec38631037ebd44eb996361c6a",
     "syntaxErrorCases": [
       "err-001",
       "err-009",
@@ -39,7 +39,8 @@
       "err-013",
       "err-014",
       "err-015",
-      "err-016"
+      "err-016",
+      "err-017"
     ]
   }
 }

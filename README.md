@@ -21,9 +21,9 @@ npm run conformance         # every recipe of it parses with no ERROR or MISSING
 npm run oracle              # every recipe of it, and of test/corpus, is cut as @gram-lang/parser cuts it
 ```
 
-The corpus is pinned in one place, `package.json` (`gram.ref`, a tag or a commit of the monorepo). `GRAM_MONOREPO` points the fetch to another clone, a local path included. The eight cases that are syntax errors in `grammar.ohm` are left out (`gram.syntaxErrorCases`); the other `err-*` cases are valid recipes and are checked.
+The corpus is pinned in one place, `package.json` (`gram.ref`, a tag or a commit of the monorepo). `GRAM_MONOREPO` points the fetch to another clone, a local path included. The nine cases that are syntax errors in `grammar.ohm` are left out (`gram.syntaxErrorCases`); the other `err-*` cases are valid recipes and are checked.
 
-The cutting oracle compares, recipe by recipe, the ranges of the elements read by `@gram-lang/parser` (a development dependency, pinned to the version of the corpus) with those of the tree-sitter nodes: ingredients, tools, timers, temperatures, target states, references, intermediate declarations, composite parents, anchors, imports and their bindings, section headers. A grammar that cuts `@sel, puis ajouter l'eau{100 ml}` into two ingredients fails it. Keep `gram.ref` and the `@gram-lang/parser` version in step.
+The cutting oracle compares, recipe by recipe, the ranges of the elements read by `@gram-lang/parser` (a development dependency, pinned to the version of the corpus; between two Gram releases, a tarball packed from `gram.ref` in `vendor/`) with those of the tree-sitter nodes: ingredients, tools, timers, temperatures, target states, references, intermediate declarations, composite parents, anchors, imports and their bindings, section headers. A grammar that cuts `@sel, puis ajouter l'eau{100 ml}` into two ingredients fails it. Keep `gram.ref` and the `@gram-lang/parser` version in step.
 
 ## Queries
 
